@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <base href="/" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/botones.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/cssMensajeFlash.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/cssLoading.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet" />
+    {% block css%}
+
+    {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        {% block style %}
+        
+        {% endblock %}
+    </style>
+</head>
+
+<body>
+    {% for mensaje in flash_mensajes %}
+    	{% if mensaje.tipo == 'error' %}
+    		{% set alt = 'Alt2' %}
+    	{% else %}
+    		{% set alt = 'Alt' %}
+    	{% endif %}
+
+    	{% set alt = alt~mensaje.alt %}
+
+	    <div class="divFlashMensaje divFlashMensaje-{{ mensaje.tipo }}{{alt}}">
+	        {{ mensaje.cuerpo }}
+	    </div>
+    {% endfor %}
+
+    <div id="loader" style="display: none">
+		<div id="circuleExtern">
+			<div id="circuleMedium">
+				<div id="circuleCenter">
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <label id="lblAjaxOculto" class="msjAjaxOculto"></label>
+    <label id="lblAjax" class="msjAjax dn" style="display: none;"></label>
+
+    {% block body %}{% endblock %}
+
+    <script type="text/javascript" src="assets/js/jsBase.js"></script>
+    <script type="text/javascript" src="assets/js/jsGen.js"></script>
+    <script type="text/javascript" src="assets/js/jsAjax.js"></script>
+    <script type="text/javascript" src="assets/js/comp/sweetalert.min/sweetalert.min.js"></script>
+    
+    {% block script %}
+    {% endblock %}
+</body>
+
+</html>

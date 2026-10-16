@@ -1,0 +1,22 @@
+# ---- Credenciales y configuracion local (NUNCA subir) ----
+backend/config/application-local.properties
+.env
+*.env.local
+
+# ---- Compilados de Maven ----
+backend/target/
+target/
+
+# ---- PHP: dependencias de Composer y logs ----
+php/vendor/
+php/logs/*.log
+
+# ---- IDE ----
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# ---- Sistema operativo ----
+.DS_Store
+Thumbs.db

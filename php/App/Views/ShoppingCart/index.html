@@ -1,0 +1,112 @@
+{% extends "base.html" %} 
+
+{% block style %} {% endblock %} 
+
+{% block title %}Carrito de Compra{% endblock %} 
+
+{% block body %}
+
+<h1>Demostración de Carrito de Compra Básico</h1>
+<h2>Elaborado con PHP usando Twig y MVC</h2>
+
+<div class="producto-cuadricula" style="position: relative;">
+    
+    <div class="cuadricula-titulo">
+        <h3>Carrito de compra</h3>
+    </div>
+    
+    <div class="div-tit">
+        <a class="anc-cir apa" href="/">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 5.92969L6.92969 12L13 18.0703L14.5 16.5703L9.92969 12L14.5 7.42969L13 5.92969Z"></path>
+            </svg>
+        </a>
+
+        {% if productos is not empty %}
+        <a id="uiAncAct" class="anc-cir apa apa2 som" href="shopping-cart">
+            <svg width="24" height="24" viewBox="0 0 512 512" fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M408.973,142.689C368.113,101.829,313.785,79.326,256,79.326h-31.717l50.907-51.032L246.826,0L147.68,99.389
+                            l97.852,99.488l28.563-28.093l-50.551-51.396H256c97.198,0,176.275,79.076,176.275,176.275S353.198,471.938,256,471.938
+                            S79.725,392.861,79.725,295.659v-20.031l-40.062,0.004v20.031c0,57.786,22.503,112.113,63.364,152.973
+                            C143.887,489.497,198.215,512,256,512c57.785,0,112.113-22.503,152.973-63.364c40.861-40.861,63.364-95.188,63.364-152.973
+                            S449.834,183.55,408.973,142.689z"/>
+                    </g>
+                </g>
+                <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                <g></g><g></g><g></g><g></g><g></g>
+            </svg>
+        </a>
+        {% endif %}
+    </div>
+    
+    {% if productos is empty %}
+
+    <div class="div-tit-vacio apa">
+        <p>Tu carrito de compra esta vacío</p>
+    </div>
+
+    <div class="body-balloon">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+    
+    {% else %}
+
+    <div style="position: absolute; right: 0; top: 0;">
+        <a id="ancVaciarCarrito" class="btn-vaciar-carrito apa bor-rad3"
+            href="/shopping-cart/{{ cod_usr }}/vaciar">Vaciar carrito</a>
+    </div>
+
+    <table class="tbl-agl-v2 table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nombre</th>
+                <th>Código</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Sub Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td data-label="Producto"><img src="/{{producto.imagen}}" /></td>
+                <td data-label="Nombre">{{producto.nombre}}</td>
+                <td data-label="Código">{{producto.codigo}}</td>
+                <td data-label="Cantidad">{{producto.cantidad}}</td>
+                <td data-label="Precio">{{producto.precio}}</td>
+                <td data-label="Sub Total">{{producto.sub_total}}</td>
+                <td>
+                    <a class="h-o-s-c"
+                        data-anc="js-eli" data-listo="no"
+                        href="/shopping-cart/{{ producto.idsc }}/eliminar">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</div>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/assets/css/style-shopping-cart.css" />
+<link rel="stylesheet" href="/assets/css/globitos.css" />
+<link rel="stylesheet" href="/assets/css/tblAgl.css" />
+{% endblock %} 
+
+{% block script %}
+<script type="text/javascript" src="assets/js/shopping-cart/index.js"></script>
+{% endblock %}

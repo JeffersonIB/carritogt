@@ -1,0 +1,16 @@
+# =====================================================================
+#  Configuracion LOCAL de su equipo (ejemplo).
+#  1. Copie este archivo como:   config/application-local.properties
+#  2. Escriba sus valores reales.
+#  config/application-local.properties esta en .gitignore: NUNCA se sube a GitHub.
+# =====================================================================
+
+# URL de la base "cc" en MySQL/MariaDB dentro de la maquina virtual
+spring.datasource.url=jdbc:mysql://localhost:3306/cc?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+
+# Usuario creado con database/02_usuario_aplicacion.sql
+spring.datasource.username=carritogt
+spring.datasource.password=ESCRIBA_AQUI_SU_CONTRASENA
+
+# (Opcional) Origenes permitidos por CORS si sirve el frontend con Apache
+# app.cors.allowed-origins=http://carrito-compra.localhost

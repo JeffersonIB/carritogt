@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarritoGT | Catálogo</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor encabezado__fila">
+            <a class="marca" href="index.html">Carrito<span>GT</span></a>
+            <a class="btn btn--contorno" href="carrito.html" aria-label="Ver carrito de compra">
+                <svg class="icono" viewBox="0 -31 512 512" aria-hidden="true"><path d="m166 300h271c6.7 0 12.6-4.4 14.4-10.9l60-210c1.3-4.5.4-9.4-2.4-13.2-2.8-3.7-7.3-5.9-12-5.9h-365.6l-10.7-48.3c-1.5-6.9-7.6-11.7-14.6-11.7h-91c-8.3 0-15 6.7-15 15s6.7 15 15 15h79l54.2 243.8c-15.9 6.9-27.1 22.8-27.1 41.2 0 24.8 20.2 45 45 45h271c8.3 0 15-6.7 15-15s-6.7-15-15-15h-271c-8.3 0-15-6.7-15-15s6.7-15 15-15zm-15 105c0 24.8 20.2 45 45 45s45-20.2 45-45-20.2-45-45-45-45 20.2-45 45zm211 0c0 24.8 20.2 45 45 45s45-20.2 45-45-20.2-45-45-45-45 20.2-45 45z"/></svg>
+                Carrito <span id="contador-carrito" class="globo">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <h1>Demostración de Carrito de Compra</h1>
+        <p class="subtitulo">Migrado de PHP a una API REST con Spring Boot y arquitectura por capas</p>
+
+        <section aria-labelledby="titulo-catalogo">
+            <h2 id="titulo-catalogo">Catálogo de productos</h2>
+            <div id="estado-catalogo" class="estado">Cargando productos...</div>
+            <div id="lista-productos" class="cuadricula"></div>
+        </section>
+    </main>
+
+    <div id="mensajes" class="mensajes" aria-live="polite"></div>
+
+    <script type="module" src="js/catalogo.js"></script>
+</body>
+</html>

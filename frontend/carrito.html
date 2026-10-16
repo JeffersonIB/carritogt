@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarritoGT | Carrito de compra</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor encabezado__fila">
+            <a class="marca" href="index.html">Carrito<span>GT</span></a>
+            <a class="btn btn--contorno" href="index.html">&larr; Seguir comprando</a>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <h1>Carrito de compra</h1>
+
+        <div id="estado-carrito" class="estado">Cargando carrito...</div>
+
+        <section id="carrito-vacio" class="vacio" hidden>
+            <p>Tu carrito de compra está vacío.</p>
+            <a class="btn btn--primario" href="index.html">Ver productos</a>
+        </section>
+
+        <section id="carrito-con-items" hidden>
+            <div class="tabla-envoltura">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Código</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="filas-carrito"></tbody>
+                </table>
+            </div>
+
+            <div class="resumen">
+                <button id="btn-vaciar" class="btn btn--peligro" type="button">Vaciar carrito</button>
+                <div class="resumen__total">
+                    <span id="total-articulos">0 artículos</span>
+                    <strong>Total: <span id="total-carrito">Q 0.00</span></strong>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="mensajes" class="mensajes" aria-live="polite"></div>
+
+    <script type="module" src="js/carrito.js"></script>
+</body>
+</html>

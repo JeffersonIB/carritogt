@@ -1,0 +1,15 @@
+Copie aqui las 4 imagenes de productos del repositorio PHP original
+(carpeta public/images/product/ de carrito-compra-basico):
+
+    camera.jpg
+    external-hard-drive.jpg
+    laptop.jpg
+    watch.jpg
+
+Comando (Lubuntu), desde la carpeta raiz del proyecto carritogt:
+
+    cp ../carrito-compra-basico/public/images/product/*.jpg frontend/images/product/
+
+La base de datos guarda la ruta relativa "images/product/<archivo>.jpg" (columna producto.imagen),
+por lo que el navegador las encontrara en esta carpeta. Si falta alguna, la pagina muestra
+"images/sin-imagen.svg" en su lugar.
